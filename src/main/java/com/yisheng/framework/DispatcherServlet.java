@@ -55,6 +55,7 @@ public class DispatcherServlet extends HttpServlet {
 
         //获取Action处理器
         Handler handler= ControllerHelper.getHandler(requestMethod,requestPath);
+
         if(handler!=null){
 
             //获取Controller类以其Bean实例
@@ -86,7 +87,6 @@ public class DispatcherServlet extends HttpServlet {
                     }
                 }
             }
-
             Param param=new Param(paramMap);
             //调用Action方法
             Method actionMethod=handler.getActionMethod();

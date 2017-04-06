@@ -31,9 +31,9 @@ public final class IocHelper {
                         if(beanField.isAnnotationPresent(Inject.class)){
                             //在BeanMap中获取BeanField对应的实例
                             Class<?>beanFieldClass=beanField.getType();
-                            Object beanFieldInstance=beanMap.get(beanFieldClass);
+                            Object beanFieldInstance=beanMap.get(beanFieldClass);//这里没有获取到？
+                           // Object beanFieldInstance=ReflectionUtil.newInstance(beanFieldClass);
                             if(beanFieldInstance!=null){
-                                //
                                 ReflectionUtil.setField(beanInstance,beanField,beanFieldInstance);
                             }
                         }

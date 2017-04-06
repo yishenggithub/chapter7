@@ -15,6 +15,7 @@ public final class BeanHelper {
 
     static {
         Set<Class<?>> beanClassSet=ClassHelper.getBeanClassSet();
+
         for(Class<?>beanClass:beanClassSet){
             Object obj= ReflectionUtil.newInstance(beanClass);
             BEAN_MAP.put(beanClass,obj);

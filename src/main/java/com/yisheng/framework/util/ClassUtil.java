@@ -74,8 +74,10 @@ public final class ClassUtil {
     }
 
     private static void addClass(Set<Class<?>>classSet,String packagePath,String packageName){
+      //test System.out.print(packagePath+"\n");
         File[]files=new File(packagePath).listFiles(new FileFilter() {
             public boolean accept(File file) {
+                //返回目录下的文件或目录，是一个class文件或者目录
                 return (file.isFile()&&file.getName().endsWith(".class"))||file.isDirectory();
             }
         });
@@ -90,7 +92,8 @@ public final class ClassUtil {
             }else {
                 String subPackagePath=fileName;
                 if(StringUtil.isNotEmpty(packagePath)){
-                    subPackagePath=packageName+"/"+subPackagePath;
+                    //书上是对的，自己打错了，这里应该是packagePath
+                    subPackagePath=packagePath+"/"+subPackagePath;
                 }
                 String subPackageName=fileName;
                 if (StringUtil.isNotEmpty(packageName)){
@@ -102,6 +105,8 @@ public final class ClassUtil {
     }
     private static void  doAddClass(Set<Class<?>>classSet,String className){
         Class<?>cls=loadClass(className,false);
+        //////////////////////////
+        System.out.print(cls.getName()+"\n");
         classSet.add(cls);
     }
 }
