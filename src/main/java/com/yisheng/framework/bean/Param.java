@@ -2,6 +2,7 @@ package com.yisheng.framework.bean;
 
 import com.yisheng.framework.util.CastUtil;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -23,5 +24,18 @@ public class Param {
     //根据参数名获取long型参数值
     public long getLong(String name){
         return CastUtil.castLong(paramMap.get(name));
+    }
+
+    //根据参数名获取int型参数值
+    public int getInt(String name){return  CastUtil.castInt(paramMap.get(name));}
+
+    //根据参数名获取String型参数值
+    public String getString(String name){
+        return  CastUtil.castString(paramMap.get(name));
+    }
+
+    //获取response
+    public HttpServletResponse getResponse(){
+        return (HttpServletResponse)paramMap.get("response");
     }
 }

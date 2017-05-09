@@ -35,6 +35,7 @@ public final class IocHelper {
                            // Object beanFieldInstance=ReflectionUtil.newInstance(beanFieldClass);
                             if(beanFieldInstance!=null){
                                 ReflectionUtil.setField(beanInstance,beanField,beanFieldInstance);
+                                //model层中customer类的实例beanFieldInstance，beanInstance是@Inject类的实例。
                             }
                         }
                     }

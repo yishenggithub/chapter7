@@ -5,6 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * JSON工具类
  *  DispatcherServlet用到
@@ -40,5 +44,17 @@ public final class JsonUtil {
             throw  new RuntimeException(e);
         }
         return pojo;
+    }
+
+    public static Map<String,Object> toMap(String json){
+
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        try {
+            paramMap=OBJECT_MAPPER.readValue(json,Map.class);
+        } catch (Exception e) {
+            LOGGER.error("convert JSON to Map failure",e);
+            throw  new RuntimeException(e);
+        }
+        return paramMap;
     }
 }
