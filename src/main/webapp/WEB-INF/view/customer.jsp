@@ -6,6 +6,11 @@
 <html>
 <head>
    <title>客户管理</title>
+   <script type="application/javascript">
+           $(document).ready(function () {
+               $("#myDiv").load("hello.jsp");
+           });
+       </script>
 </head>
 <body>
 
@@ -32,5 +37,22 @@
      </tr>
      </c:forEach>
   </table>
+  <section id="main-content">
+          <section class="wrapper site-min-height">
+
+              <div class="row mt">
+                  <div class="col-lg-12">
+
+                      <div class="showback">
+                          <div class="site-index">
+                              <div class="jumbotron">
+                                  <div id="myDiv"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </section>
 </body>
 </html>
